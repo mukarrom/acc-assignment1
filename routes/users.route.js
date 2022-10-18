@@ -2,6 +2,7 @@ const express = require('express');
 const { deleteAUser } = require('../controllers/users_controller/delete.user');
 const { getAllUser } = require('../controllers/users_controller/get.all');
 const { getRandomUser } = require('../controllers/users_controller/get.random');
+const { bulkUpdate } = require('../controllers/users_controller/patch.bulk-update');
 const { updateAUser } = require('../controllers/users_controller/patch.update');
 const { saveAUser } = require('../controllers/users_controller/post.save');
 
@@ -33,6 +34,14 @@ router.route('/save').post(saveAUser);
  * ? BONUS: validate the user id
  */
 router.route('/update/:id').patch(updateAUser)
+
+/**
+ * * PATCH /user/bulk-update update multiple users
+ * TODO: Update multiple users' information in the .json file Take an array of user ids and assign it to the body.
+ * ? BONUS: validate the body.
+ */
+router.route('/bulk-update/:id').patch(bulkUpdate)
+
 
 /**
  * // DELETE /user/ delete
